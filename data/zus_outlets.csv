@@ -1,0 +1,259 @@
+id,name,location,address,opening_time,closing_time,dine_in,delivery,pickup
+1,ZUS Coffee – Temu Business Centre City Of Elmina,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+2,ZUS Coffee – Spectrum Shopping Mall,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+3,ZUS Coffee – Bandar Menjalara,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+4,"ZUS Coffee – Jabatan Peguam Negara, Putrajaya",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+5,"ZUS Coffee – LSH33, Sentul",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+6,"ZUS Coffee – Bandar Tun Hussein Onn, Cheras",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+7,ZUS Coffee – AEON BiG Wangsa Maju,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+8,ZUS Coffee – Cheras Business Centre,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+9,"ZUS Coffee – Damansara Perdana, Petaling Jaya",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+10,"ZUS Coffee – Bandar Damai Perdana, Cheras",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+11,"ZUS Coffee – Desa Pandan, Ampang",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+12,"ZUS Coffee – Kenanga Wholesale City, Jalan Gelugor",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+13,ZUS Coffee – Giant Shah Alam Stadium,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+14,ZUS Coffee – Bintang Fairlane Residence,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+15,"ZUS Coffee – Nadayu 801, Taman Subang Murni",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+16,ZUS Coffee – MAB Academy Campus Sepang,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+17,"ZUS Coffee – Jalan Berangan, Port Klang",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+18,ZUS Coffee – Ampang Point,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+19,"ZUS Coffee – Seksyen 3, Bandar Baru Bangi",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+20,"ZUS Coffee – Seksyen 7, Bandar Baru Bangi",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+21,"ZUS Coffee – Desa Aman Puri, Kepong",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+22,"ZUS Coffee – M Vertica, Cheras",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+23,ZUS Coffee – Pasaraya CS Bangi Avenue,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+24,"ZUS Coffee – Lorong Pandan Pertama 5, Ampang",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+25,"ZUS Coffee – Edusentral, Setia Alam",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+26,ZUS Coffee – Wangsa Walk Mall,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+27,"ZUS Coffee – Uptown Damansara, Petaling Jaya",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+28,ZUS Coffee – Bangsar Trade Centre,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+29,ZUS Coffee – BHPetrol Karak Highway,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+30,ZUS Coffee – KL Eco City Mall,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+31,"ZUS Coffee – Alam Budiman, Shah Alam",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+32,ZUS Coffee – Elmina Lakeside Mall,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+33,ZUS Coffee – Pinnacle Sri Petaling Mall,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+34,"ZUS Coffee – Dataran Glomac, Kelana Jaya",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+35,"ZUS Coffee – UOA Business Park, Shah Alam",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+36,ZUS Coffee – Atria Shopping Gallery,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+37,"ZUS Coffee – Lebuh Turi, Klang",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+38,"ZUS Coffee – Ground Floor, Menara IQ",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+39,"ZUS, Coffee Meets Pastry – 1 Utama Shopping Centre",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+40,"ZUS Coffee – Taman Segar Perdana, Cheras",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+41,ZUS Coffee – Sabak Bernam,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+42,"ZUS Coffee – Jalan Kebun Nenas, Klang",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+43,ZUS Coffee – Menara TH Perdana,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+44,ZUS Coffee – MRT Bandar Utama,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+45,"ZUS Coffee – Micasa Shoppes, Jalan Tun Razak",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+46,ZUS Coffee – Wisma TH Plaza Sentral,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+47,"ZUS Coffee – Pertama Complex, Kuala Lumpur",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+48,"ZUS Coffee – Pekan Kapar, Klang",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+49,"ZUS Coffee – Sri Rampai, Setapak",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+50,ZUS Coffee – Bloomsvale Shopping Gallery,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+51,ZUS Coffee – Bandar Mahkota Cheras,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+52,ZUS Coffee – KL Traders Square,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+53,"ZUS Coffee – Bandar Kinrara 5, Puchong",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+54,ZUS Coffee – KPJ Kajang Specialist Hospital,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+55,ZUS Coffee – Kuala Kubu Baru,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+56,"ZUS Coffee – Menara Axis, Petaling Jaya",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+57,ZUS Coffee – Central I-City,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+58,ZUS Coffee – Taman Sri Muda,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+59,"ZUS Coffee – Alam Avenue 2, Shah Alam Seksyen 16",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+60,ZUS Coffee – Kuchai Entrepreneurs Park,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+61,"ZUS Coffee – Jalil Link 1, Bukit Jalil",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+62,ZUS Coffee – Menara Technip Energies,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+63,"ZUS Coffee – Jakel Mall, Kuala Lumpur",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+64,"ZUS Coffee – Anggun City, Rawang",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+65,"ZUS Coffee – Olive Business Park, Seri Kembangan",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+66,ZUS Coffee – Bukit Tinggi 1,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+67,ZUS Coffee – CALTEX Eco Ardence,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+68,"ZUS Coffee – Jalan Seri Mas 1, Hulu Langat",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+69,ZUS Coffee – Pekan Semenyih,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+70,ZUS Coffee – Solaris Mont Kiara,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+71,"ZUS Coffee – Cyberview 23A, Cyberjaya",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+72,ZUS Coffee – Monash University Malaysia,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+73,ZUS Coffee – Semua House,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+74,ZUS Coffee – Southville City,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+75,ZUS Coffee – Sekinchan,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+76,ZUS Coffee – Kompleks PKNS Shah Alam,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+77,ZUS Coffee – Shah Alam Seksyen 18,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+78,ZUS Coffee – SAMA Square,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+79,ZUS Coffee – GM Klang,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+80,"ZUS Coffee – Prima Saujana, Kajang",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+81,ZUS Coffee – AEON Mall Bukit Tinggi,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+82,ZUS Coffee – Shah Alam Seksyen 20,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+83,ZUS Coffee – You City III Cheras,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+84,ZUS Coffee – Menara UOA Bangsar,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+85,"ZUS Coffee – TTDI Jaya, Shah Alam",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+86,ZUS Coffee – Citta Mall,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+87,"ZUS Coffee – Cubic Botanical, Pantai Dalam",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+88,ZUS Coffee – TTDI Grove Kajang,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+89,ZUS Coffee – Jenjarom,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+90,ZUS Coffee – Suasana PjH Presint 2,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+91,ZUS Coffee – Plaza Low yat,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+92,"ZUS Coffee – Selera Putra, Souq Putrajaya",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+93,ZUS Coffee – Plaza Shah Alam,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+94,"ZUS Coffee – Vista Bangi, Jalan Reko",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+95,ZUS Coffee – Kipmall Bangi,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+96,ZUS Coffee – Universiti Malaya Centre for Continuing Education,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+97,Ready-To Zus – Holiday Inn Express Hotel KL,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+98,ZUS Coffee – MSU Medical Centre,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+99,ZUS Coffee – Bandar Teknologi Kajang,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+100,ZUS Coffee – Menara VSQ Petaling Jaya,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+101,ZUS Coffee – Damansara Damai,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+102,ZUS Coffee – AEON Mall Cheras Selatan,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+103,"ZUS Coffee – Setia Prima, Setia Alam",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+104,ZUS Coffee – The Glenz @Glenmarie,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+105,ZUS Coffee – Puchong Utama,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+106,ZUS Coffee – Sunway Pyramid,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+107,ZUS Coffee – Setapak Central Mall,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+108,ZUS Coffee – The Exchange TRX,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+109,ZUS Coffee – Taman Sri Manja,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+110,ZUS Coffee – Eco Grandeur,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+111,ZUS Coffee – Jaya Shopping Centre,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+112,ZUS Coffee – Eco Majestic Semenyih,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+113,"ZUS Coffee – Gateway@KLIA2 (Departure Hall, Level 3)",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+114,"ZUS Coffee – Gateway@KLIA2 (Arrival Hall, Level 2)",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+115,ZUS Coffee – Taipan USJ,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+116,ZUS Coffee – Sunway Velocity Mall,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+117,ZUS Coffee – Sapura Lot 91 KLCC,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+118,"ZUS Coffee – Taman Myra Meranti, Puchong",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+119,ZUS Coffee – OUG Parklane,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+120,ZUS Coffee – Centro Mall,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+121,ZUS Coffee – Lotus’s Klang,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+122,ZUS Coffee – Pavilion Damansara Heights,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+123,ZUS Coffee – Shaftsbury Square,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+124,ZUS Coffee – SS2,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+125,ZUS Coffee – Sunway Velocity Two,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+126,ZUS Coffee – Kidzania Kuala Lumpur,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+127,ZUS Coffee – Seventeen Mall,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+128,ZUS Coffee – SHELL Cyberjaya Autoville,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+129,ZUS Coffee – Cybersouth Dengkil,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+130,ZUS Coffee – UCSI University KL,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+131,ZUS Coffee – Avenue K,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+132,ZUS Coffee – Centrepoint Bandar Utama,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+133,ZUS Coffee – Setiawangsa,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+134,ZUS Coffee – Sungei Wang Plaza,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+135,ZUS Coffee – Universiti Kebangsaan Malaysia (Bangunan Pusanika),Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+136,"ZUS Coffee – Tower 8, Horizon 2, Bangsar South",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+137,ZUS Coffee – Eco Sky,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+138,ZUS Coffee – Berjaya Times Square,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+139,ZUS Coffee – Alamanda Putrajaya,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+140,ZUS Coffee – INTI International College Subang,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+141,ZUS Coffee – Bandar Country Homes Rawang,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+142,ZUS Coffee – Melawati Mall,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+143,ZUS Coffee – IOI Boulevard,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+144,ZUS Coffee – Pekan Meru,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+145,ZUS Coffee – Desa Petaling,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+146,ZUS Coffee – Jade Hills Kajang,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+147,ZUS Coffee – Bandar Tasik Puteri,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+148,ZUS Coffee – Bandar Sunway,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+149,ZUS Coffee – Cheras Leisure Mall,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+150,ZUS Coffee – Pearl Point Shopping Mall,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+151,ZUS Coffee – Empire Shopping Gallery,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+152,ZUS Coffee – CALTEX Sungai Choh,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+153,ZUS Coffee – Teluk Pulai,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+154,ZUS Coffee – PJ New Town,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+155,ZUS Coffee – KSL Esplanade Mall,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+156,ZUS Coffee – Da Men Mall,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+157,ZUS Coffee – University of Malaya,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+158,ZUS Coffee – University of Nottingham,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+159,ZUS Coffee – Suria KLCC,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+160,ZUS Coffee – KL Gateway,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+161,ZUS Coffee – AEON Mall Wangsa Maju Alpha Angle,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+162,ZUS Coffee – KLIA 1 Departure Hall,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+163,ZUS Coffee – M3 Shopping Mall,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+164,ZUS Coffee – Xiamen University Malaysia,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+165,ZUS Coffee – Skypark Terminal,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+166,ZUS Coffee – Jaya One Mall,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+167,ZUS Coffee – AEON Mall Metro Prima Kepong,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+168,ZUS Coffee – Taman Bukit Anggerik,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+169,ZUS Coffee – AEON Mall Taman Maluri,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+170,ZUS Coffee – AEON Mall Bukit Raja,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+171,ZUS Coffee – Taman Desa Setapak,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+172,ZUS Coffee – Taman Kosas,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+173,ZUS Coffee – Putrajaya Presint 15,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+174,ZUS Coffee – Bandar Sungai Long,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+175,ZUS Coffee – Quayside Mall,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+176,ZUS Coffee – MYDIN USJ Subang Jaya,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+177,ZUS Coffee – Temu @ City Of Elmina,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+178,ZUS Coffee – BMC Mall,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+179,ZUS Coffee – Nu Sentral Mall,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+180,ZUS Coffee – Pandan Indah,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+181,ZUS Coffee – Majestic Maxim Residensi Tmn Bkt Cheras,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+182,ZUS Coffee – Quill City Mall,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+183,ZUS Coffee – IOI City Mall,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+184,"ZUS Coffee – Megah Rise Mall, PJ",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+185,ZUS Coffee – BHP Jalan Maarof,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+186,ZUS Coffee – The FLO Bandar Sri Damansara,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+187,ZUS Coffee – AEON Mall Taman Equine Shopping Centre,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+188,ZUS Coffee – Puncak Jalil,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+189,ZUS Coffee – Banting,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+190,ZUS Coffee – AEON Mall Shah Alam,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+191,ZUS Coffee – Datum Jelatek Mall,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+192,"ZUS Coffee – Taman Tas, Kuantan",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+193,ZUS Coffee – Antara Gapi,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+194,ZUS Coffee – Shah Alam Seksyen 14 (Vista Alam),Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+195,ZUS Coffee – Bandar Saujana Putra,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+196,ZUS Coffee – CALTEX Temiang,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+197,ZUS Coffee – SB Mall Sungai Buloh,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+198,ZUS Coffee – Subang Bestari,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+199,ZUS Coffee – Setia City Mall,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+200,ZUS Coffee – Batang Kali,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+201,MENARA WORLDWIDE,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+202,PUTRA HEIGHTS,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+203,1 UTAMA SHOPPING CENTRE,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+204,SAUJANA UTAMA,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+205,DENAI ALAM,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+206,BANDAR SERI COALFIELDS,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+207,TROPICANA GARDENS MALL,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+208,LAKEFIELDS TRILLIUM,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+209,"TAMAN SRI SERDANG, SERI KEMBANGAN",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+210,IOI CONEZION,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+211,STARLING MALL,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+212,SUBANG PERDANA,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+213,BANDAR SERI PUTRA,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+214,SENTUL POINT,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+215,AMPANG SPECTRUM MALL,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+216,"ZUS Coffee – DPulze Shopping Centre, Cyberjaya",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+217,KOTA DAMANSARA,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+218,ATRIA SHOPPING GALLERY,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+219,BUKIT SENTOSA,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+220,KOTA WARISAN,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+221,SHAH ALAM SEKSYEN 13,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+222,"ZUS Coffee – Sunway Gandaria, Bangi",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+223,RAWANG REEF,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+224,PRIMA SRI GOMBAK,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+225,"ZUS Coffee – Ecohill, Semenyih",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+226,BANDAR BARU SELAYANG,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+227,BANDAR BUKIT RAJA,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+228,SETIA ALAM TP2,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+229,SUNWAY PINNACLE,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+230,KOTA KEMUNING,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+231,SHAH ALAM SEKSYEN 7,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+232,"ZUS Coffee – MKH Boulevard, Kajang",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+233,THE CURVE,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+234,?CHERAS TRADER SQUARE,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+235,MAIN PLACE,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+236,ZUS BUKIT TINGGI 2,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+237,ZUS Coffee – The Mines Shopping Mall,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+238,IOI RIO CITY,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+239,PUCHONG IOI MALL,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+240,BANDAR MENJALARA,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+241,MASJID JAMEK,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+242,BANDAR SRI PERMAISURI,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+243,PAVILION BUKIT JALIL,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+244,MYTOWN CHERAS,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+245,"ZUS Coffee – Taman Bendahara, Kuala Selangor",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+246,MID VALLEY MEGAMALL,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+247,"ZUS Coffee – Fortune Centra, Kepong",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+248,FOUND8 KL SENTRAL,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+249,PUBLIKA,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+250,PLAZA DAMAS,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+251,SRI PETALING,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+252,KL EAST MALL,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+253,DANAU KOTA,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+254,EKOCHERAS MALL,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+255,BINJAI 8 PREMIUM SOHO,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+256,"ZUS Coffee – The Park Sky Residence, Bukit Jalil",Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+257,TAMAN DESA,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
+258,BINJAI 8 PREMIUM SOHO,Kuala Lumpur/Selangor,,08:00,22:00,0,0,0
