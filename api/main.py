@@ -34,7 +34,6 @@ def load_csvs(files: List[str]) -> List[Document]:
 
 # Use OpenAIEmbeddings with OpenRouter (Meta-LLaMA-3.3-70B-Instruct)
 # Note: langchain-openai supports OpenRouter as a drop-in for OpenAI endpoints
-os.environ["OPENAI_API_KEY"] = OPENROUTER_API_KEY
 os.environ["OPENAI_API_BASE"] = "https://openrouter.ai/api/v1"
 
 # Prepare vector store
