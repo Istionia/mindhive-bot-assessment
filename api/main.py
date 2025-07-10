@@ -1,6 +1,6 @@
 import os
 from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel, SecretStr
+from pydantic import BaseModel
 from typing import List
 from dotenv import load_dotenv
 from langchain_openai import OpenAIEmbeddings
@@ -16,8 +16,9 @@ OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 if not OPENROUTER_API_KEY:
     raise RuntimeError("OPENROUTER_API_KEY not found in .env")
 
-# Set OpenAI API key for OpenRouter compatibility
+# Set environment variables for OpenRouter compatibility
 os.environ["OPENAI_API_KEY"] = OPENROUTER_API_KEY
+os.environ["OPENAI_BASE_URL"] = "https://openrouter.ai/api/v1"
 
 # FastAPI app
 app = FastAPI()
@@ -35,34 +36,16 @@ def load_csvs(files: List[str]) -> List[Document]:
             docs.append(Document(page_content=content, metadata={"source": file}))
     return docs
 
-# Use OpenAIEmbeddings with OpenRouter
-# Set environment variables for OpenRouter compatibility
-os.environ["OPENAI_API_BASE"] = "https://openrouter.ai/api/v1"
-
-# Prepare vector store
+# Prepare vector store with simplified configuration
 documents = load_csvs(DATA_FILES)
-embeddings = OpenAIEmbeddings(
-    api_key=SecretStr(OPENROUTER_API_KEY),
-    base_url="https://openrouter.ai/api/v1",
-    model="text-embedding-3-small",  # Specify embedding model for OpenRouter
-    headers={
-        "HTTP-Referer": "https://github.com/Istionia/mindhive-bot-assessment",
-        "X-Title": "Mindhive Bot Assessment"
-    }
-)
+embeddings = OpenAIEmbeddings()
 vectorstore = FAISS.from_documents(documents, embeddings)
 
 # Prepare retriever and LLM
 retriever = vectorstore.as_retriever()
 llm = ChatOpenAI(
     model="meta-llama/llama-3-70b-instruct", 
-    temperature=0,
-    api_key=SecretStr(OPENROUTER_API_KEY),
-    base_url="https://openrouter.ai/api/v1",
-    default_headers={
-        "HTTP-Referer": "https://github.com/Istionia/mindhive-bot-assessment",
-        "X-Title": "Mindhive Bot Assessment"
-    }
+    temperature=0
 )
 rag_chain = RetrievalQA.from_chain_type(llm=llm, retriever=retriever)
 
