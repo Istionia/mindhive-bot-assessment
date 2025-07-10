@@ -1,6 +1,6 @@
 import os
 from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
+from pydantic import BaseModel, SecretStr
 from typing import List
 from dotenv import load_dotenv
 from langchain_openai import OpenAIEmbeddings
@@ -64,7 +64,7 @@ documents = load_csvs(DATA_FILES)
 # Try explicit OpenRouter configuration
 try:
     embeddings = OpenAIEmbeddings(
-        api_key=OPENROUTER_API_KEY,
+        api_key=SecretStr(OPENROUTER_API_KEY),
         base_url="https://openrouter.ai/api/v1",
         default_headers={
             "HTTP-Referer": "https://github.com/Istionia/mindhive-bot-assessment",
@@ -84,7 +84,7 @@ retriever = vectorstore.as_retriever()
 llm = ChatOpenAI(
     model="meta-llama/llama-3-70b-instruct", 
     temperature=0,
-    api_key=OPENROUTER_API_KEY,
+    api_key=SecretStr(OPENROUTER_API_KEY),
     base_url="https://openrouter.ai/api/v1",
     default_headers={
         "HTTP-Referer": "https://github.com/Istionia/mindhive-bot-assessment",
