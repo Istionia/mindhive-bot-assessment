@@ -9,12 +9,34 @@ from langchain_openai import ChatOpenAI
 from langchain.chains import RetrievalQA
 from langchain.schema import Document
 import pandas as pd
+import requests
 
 # Load environment variables
 load_dotenv()
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 if not OPENROUTER_API_KEY:
     raise RuntimeError("OPENROUTER_API_KEY not found in .env")
+
+# Debug: Print first few characters of API key to verify it's loaded
+print(f"API Key loaded: {OPENROUTER_API_KEY[:8]}...")
+
+# Test OpenRouter API directly
+try:
+    response = requests.get(
+        "https://openrouter.ai/api/v1/models",
+        headers={
+            "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+            "HTTP-Referer": "https://github.com/Istionia/mindhive-bot-assessment",
+            "X-Title": "Mindhive Bot Assessment"
+        }
+    )
+    print(f"OpenRouter API test: {response.status_code}")
+    if response.status_code == 200:
+        print("✓ OpenRouter API key is working")
+    else:
+        print(f"✗ OpenRouter API error: {response.text}")
+except Exception as e:
+    print(f"✗ OpenRouter API test failed: {e}")
 
 # Set environment variables for OpenRouter compatibility
 os.environ["OPENAI_API_KEY"] = OPENROUTER_API_KEY
@@ -36,16 +58,38 @@ def load_csvs(files: List[str]) -> List[Document]:
             docs.append(Document(page_content=content, metadata={"source": file}))
     return docs
 
-# Prepare vector store with simplified configuration
+# Prepare vector store with explicit OpenRouter configuration
 documents = load_csvs(DATA_FILES)
-embeddings = OpenAIEmbeddings()
+
+# Try explicit OpenRouter configuration
+try:
+    embeddings = OpenAIEmbeddings(
+        api_key=OPENROUTER_API_KEY,
+        base_url="https://openrouter.ai/api/v1",
+        default_headers={
+            "HTTP-Referer": "https://github.com/Istionia/mindhive-bot-assessment",
+            "X-Title": "Mindhive Bot Assessment"
+        }
+    )
+    print("✓ OpenAI embeddings initialized with OpenRouter")
+except Exception as e:
+    print(f"✗ Failed to initialize embeddings: {e}")
+    # Fallback to environment variables
+    embeddings = OpenAIEmbeddings()
+
 vectorstore = FAISS.from_documents(documents, embeddings)
 
 # Prepare retriever and LLM
 retriever = vectorstore.as_retriever()
 llm = ChatOpenAI(
     model="meta-llama/llama-3-70b-instruct", 
-    temperature=0
+    temperature=0,
+    api_key=OPENROUTER_API_KEY,
+    base_url="https://openrouter.ai/api/v1",
+    default_headers={
+        "HTTP-Referer": "https://github.com/Istionia/mindhive-bot-assessment",
+        "X-Title": "Mindhive Bot Assessment"
+    }
 )
 rag_chain = RetrievalQA.from_chain_type(llm=llm, retriever=retriever)
 
