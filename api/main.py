@@ -1,6 +1,6 @@
 import os
 from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
+from pydantic import BaseModel, SecretStr
 from typing import List
 from dotenv import load_dotenv
 from langchain_openai import OpenAIEmbeddings
@@ -15,6 +15,9 @@ load_dotenv()
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 if not OPENROUTER_API_KEY:
     raise RuntimeError("OPENROUTER_API_KEY not found in .env")
+
+# Set OpenAI API key for OpenRouter compatibility
+os.environ["OPENAI_API_KEY"] = OPENROUTER_API_KEY
 
 # FastAPI app
 app = FastAPI()
@@ -38,12 +41,20 @@ os.environ["OPENAI_API_BASE"] = "https://openrouter.ai/api/v1"
 
 # Prepare vector store
 documents = load_csvs(DATA_FILES)
-embeddings = OpenAIEmbeddings()
+embeddings = OpenAIEmbeddings(
+    api_key=SecretStr(OPENROUTER_API_KEY),
+    base_url="https://openrouter.ai/api/v1"
+)
 vectorstore = FAISS.from_documents(documents, embeddings)
 
 # Prepare retriever and LLM
 retriever = vectorstore.as_retriever()
-llm = ChatOpenAI(model="meta-llama/llama-3-70b-instruct", temperature=0)
+llm = ChatOpenAI(
+    model="meta-llama/llama-3-70b-instruct", 
+    temperature=0,
+    api_key=SecretStr(OPENROUTER_API_KEY),
+    base_url="https://openrouter.ai/api/v1"
+)
 rag_chain = RetrievalQA.from_chain_type(llm=llm, retriever=retriever)
 
 # Request/response models
