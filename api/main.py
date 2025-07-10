@@ -4,6 +4,7 @@ from pydantic import BaseModel, SecretStr
 from typing import List
 from dotenv import load_dotenv
 from langchain_openai import OpenAIEmbeddings
+from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain_openai import ChatOpenAI
 from langchain.chains import RetrievalQA
@@ -61,21 +62,31 @@ def load_csvs(files: List[str]) -> List[Document]:
 # Prepare vector store with explicit OpenRouter configuration
 documents = load_csvs(DATA_FILES)
 
-# Try explicit OpenRouter configuration
+# Use local HuggingFace embeddings to avoid OpenRouter authentication issues
 try:
-    embeddings = OpenAIEmbeddings(
-        api_key=SecretStr(OPENROUTER_API_KEY),
-        base_url="https://openrouter.ai/api/v1",
-        default_headers={
-            "HTTP-Referer": "https://github.com/Istionia/mindhive-bot-assessment",
-            "X-Title": "Mindhive Bot Assessment"
-        }
+    print("🔄 Initializing local HuggingFace embeddings...")
+    embeddings = HuggingFaceEmbeddings(
+        model_name="sentence-transformers/all-MiniLM-L6-v2",
+        model_kwargs={'device': 'cpu'},
+        encode_kwargs={'normalize_embeddings': True}
     )
-    print("✓ OpenAI embeddings initialized with OpenRouter")
+    print("✅ Local HuggingFace embeddings initialized successfully")
 except Exception as e:
-    print(f"✗ Failed to initialize embeddings: {e}")
-    # Fallback to environment variables
-    embeddings = OpenAIEmbeddings()
+    print(f"✗ Failed to initialize HuggingFace embeddings: {e}")
+    print("🔄 Falling back to OpenRouter embeddings...")
+    try:
+        embeddings = OpenAIEmbeddings(
+            api_key=SecretStr(OPENROUTER_API_KEY),
+            base_url="https://openrouter.ai/api/v1",
+            default_headers={
+                "HTTP-Referer": "https://github.com/Istionia/mindhive-bot-assessment",
+                "X-Title": "Mindhive Bot Assessment"
+            }
+        )
+        print("✓ OpenAI embeddings initialized with OpenRouter")
+    except Exception as e2:
+        print(f"✗ Failed to initialize embeddings: {e2}")
+        embeddings = OpenAIEmbeddings()
 
 vectorstore = FAISS.from_documents(documents, embeddings)
 
