@@ -3,9 +3,9 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import List
 from dotenv import load_dotenv
-from langchain_community.embeddings import OpenAIEmbeddings
+from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import FAISS
-from langchain_community.llms import OpenAI
+from langchain_openai import ChatOpenAI
 from langchain.chains import RetrievalQA
 from langchain.schema import Document
 import pandas as pd
@@ -43,7 +43,7 @@ vectorstore = FAISS.from_documents(documents, embeddings)
 
 # Prepare retriever and LLM
 retriever = vectorstore.as_retriever()
-llm = OpenAI(model_name="meta-llama/llama-3-70b-instruct")
+llm = ChatOpenAI(model="meta-llama/llama-3-70b-instruct", temperature=0)
 rag_chain = RetrievalQA.from_chain_type(llm=llm, retriever=retriever)
 
 # Request/response models
