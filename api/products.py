@@ -33,7 +33,7 @@ class ProductQAResponse(BaseModel):
     )
 
 def embed_text(text: str) -> list[float]:
-    client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+    client = OpenAI(api_key=os.getenv("OPENROUTER_API_KEY"), base_url=os.getenv("OPENROUTER_API_BASE", "https://openrouter.ai/api/v1"))
     resp = client.embeddings.create(model=EMBEDDING_MODEL, input=text)
     return resp.data[0].embedding
 
