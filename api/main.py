@@ -3,9 +3,9 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import List
 from dotenv import load_dotenv
-from langchain.embeddings import OpenAIEmbeddings
-from langchain.vectorstores import FAISS
-from langchain.llms import OpenAI
+from langchain_community.embeddings import OpenAIEmbeddings
+from langchain_community.vectorstores import FAISS
+from langchain_community.llms import OpenAI
 from langchain.chains import RetrievalQA
 from langchain.schema import Document
 import pandas as pd
