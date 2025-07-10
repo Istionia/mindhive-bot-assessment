@@ -35,15 +35,20 @@ def load_csvs(files: List[str]) -> List[Document]:
             docs.append(Document(page_content=content, metadata={"source": file}))
     return docs
 
-# Use OpenAIEmbeddings with OpenRouter (Meta-LLaMA-3.3-70B-Instruct)
-# Note: langchain-openai supports OpenRouter as a drop-in for OpenAI endpoints
+# Use OpenAIEmbeddings with OpenRouter
+# Set environment variables for OpenRouter compatibility
 os.environ["OPENAI_API_BASE"] = "https://openrouter.ai/api/v1"
 
 # Prepare vector store
 documents = load_csvs(DATA_FILES)
 embeddings = OpenAIEmbeddings(
     api_key=SecretStr(OPENROUTER_API_KEY),
-    base_url="https://openrouter.ai/api/v1"
+    base_url="https://openrouter.ai/api/v1",
+    model="text-embedding-3-small",  # Specify embedding model for OpenRouter
+    headers={
+        "HTTP-Referer": "https://github.com/Istionia/mindhive-bot-assessment",
+        "X-Title": "Mindhive Bot Assessment"
+    }
 )
 vectorstore = FAISS.from_documents(documents, embeddings)
 
@@ -53,7 +58,11 @@ llm = ChatOpenAI(
     model="meta-llama/llama-3-70b-instruct", 
     temperature=0,
     api_key=SecretStr(OPENROUTER_API_KEY),
-    base_url="https://openrouter.ai/api/v1"
+    base_url="https://openrouter.ai/api/v1",
+    default_headers={
+        "HTTP-Referer": "https://github.com/Istionia/mindhive-bot-assessment",
+        "X-Title": "Mindhive Bot Assessment"
+    }
 )
 rag_chain = RetrievalQA.from_chain_type(llm=llm, retriever=retriever)
 
