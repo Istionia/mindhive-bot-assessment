@@ -139,6 +139,48 @@ def health_check():
     """Health check endpoint for deployment"""
     return {"status": "healthy", "message": "ZUS Coffee Bot is running"}
 
+@app.get("/debug/data")
+def debug_data():
+    """Debug endpoint to check if data files exist"""
+    import os
+    try:
+        data_status = {}
+        for file in DATA_FILES:
+            data_status[file] = {
+                "exists": os.path.exists(file),
+                "size": os.path.getsize(file) if os.path.exists(file) else 0
+            }
+        
+        # Try loading a few rows
+        try:
+            docs = load_csvs(DATA_FILES)
+            data_status["documents_loaded"] = len(docs)
+            data_status["sample_doc"] = docs[0].page_content[:200] + "..." if docs else None
+        except Exception as e:
+            data_status["load_error"] = str(e)
+            
+        return data_status
+    except Exception as e:
+        return {"error": str(e)}
+
+@app.get("/debug/rag")
+def debug_rag():
+    """Debug RAG initialization"""
+    try:
+        rag_chain, retriever = get_rag_chain()
+        
+        # Test retrieval
+        test_docs = retriever.get_relevant_documents("drinkware")
+        
+        return {
+            "rag_initialized": _rag_chain is not None,
+            "retriever_initialized": _retriever is not None,
+            "test_retrieval_count": len(test_docs),
+            "sample_retrieved": test_docs[0].page_content[:200] + "..." if test_docs else None
+        }
+    except Exception as e:
+        return {"error": str(e), "type": type(e).__name__}
+
 @app.get("/")
 def read_root():
     """Serve the chat interface"""
@@ -172,15 +214,28 @@ def api_info():
 
 @app.post("/rag/query", response_model=RAGResponse)
 def rag_query(request: RAGQuery):
+    print(f"🔍 Received query: {request.query}")
     try:
         # Initialize components on first request
+        print("🔄 Getting RAG chain...")
         rag_chain, retriever = get_rag_chain()
+        print("✅ RAG chain obtained")
         
+        print("🔍 Running retrieval...")
+        docs = retriever.get_relevant_documents(request.query)
+        print(f"📄 Retrieved {len(docs)} documents")
+        
+        print("🤖 Generating answer...")
         result = rag_chain({"query": request.query}, return_only_outputs=True)
         answer = result["result"]
-        # Optionally, return sources (top docs)
-        docs = retriever.get_relevant_documents(request.query)
+        print(f"✅ Generated answer: {answer[:100]}...")
+        
         sources = list({doc.metadata.get("source", "") for doc in docs})
+        print(f"📚 Sources: {sources}")
+        
         return RAGResponse(answer=answer, sources=sources)
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        print(f"❌ RAG Error: {type(e).__name__}: {str(e)}")
+        import traceback
+        print(traceback.format_exc())
+        raise HTTPException(status_code=500, detail=f"{type(e).__name__}: {str(e)}")
