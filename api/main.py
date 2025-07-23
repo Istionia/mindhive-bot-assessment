@@ -134,10 +134,24 @@ class RAGResponse(BaseModel):
     answer: str
     sources: List[str]
 
+@app.get("/health")
+def health_check():
+    """Health check endpoint for deployment"""
+    return {"status": "healthy", "message": "ZUS Coffee Bot is running"}
+
 @app.get("/")
 def read_root():
     """Serve the chat interface"""
-    return FileResponse('static/index.html')
+    try:
+        return FileResponse('static/index.html')
+    except Exception as e:
+        # Fallback if static files aren't available
+        return {
+            "message": "ZUS Coffee Bot API is running!",
+            "error": f"Static files not found: {str(e)}",
+            "chat_api": "/rag/query",
+            "docs": "/docs"
+        }
 
 @app.get("/api")
 def api_info():
