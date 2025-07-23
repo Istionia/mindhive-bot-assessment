@@ -1,5 +1,7 @@
 import os
 from fastapi import FastAPI, HTTPException
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from pydantic import BaseModel, SecretStr
 from typing import List
 from dotenv import load_dotenv
@@ -45,6 +47,9 @@ os.environ["OPENAI_BASE_URL"] = "https://openrouter.ai/api/v1"
 
 # FastAPI app
 app = FastAPI()
+
+# Mount static files
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # Data ingestion and embedding
 DATA_FILES = ["data/zus_drinkware.csv", "data/zus_outlets.csv"]
@@ -131,9 +136,16 @@ class RAGResponse(BaseModel):
 
 @app.get("/")
 def read_root():
+    """Serve the chat interface"""
+    return FileResponse('static/index.html')
+
+@app.get("/api")
+def api_info():
+    """API information endpoint"""
     return {
         "message": "Mindhive Bot API is running!",
         "endpoints": {
+            "/": "GET - Chat interface",
             "/rag/query": "POST - Ask questions about ZUS products and outlets",
             "/docs": "GET - API documentation"
         },

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZUS Coffee Bot - Ask about Products & Outlets</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <div class="header-content">
+                <div class="bot-avatar">🤖</div>
+                <div class="header-info">
+                    <h1>ZUS Coffee Assistant</h1>
+                    <p>Ask me about drinkware products and outlet locations!</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot-message">
+                <div class="message-avatar">🤖</div>
+                <div class="message-content">
+                    <p>Hi! I'm your ZUS Coffee assistant. I can help you find information about:</p>
+                    <ul>
+                        <li>🥤 Drinkware products and tumblers</li>
+                        <li>📍 Outlet locations and details</li>
+                        <li>⏰ Store hours and services</li>
+                    </ul>
+                    <p>What would you like to know?</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="chat-input-container">
+            <form class="chat-form" id="chatForm">
+                <div class="input-wrapper">
+                    <input 
+                        type="text" 
+                        id="messageInput" 
+                        placeholder="Ask about ZUS products or outlets..." 
+                        autocomplete="off"
+                        maxlength="500"
+                    >
+                    <button type="submit" id="sendButton">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22,2 15,22 11,13 2,9"></polygon>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+        
+        <div class="loading-indicator" id="loadingIndicator" style="display: none;">
+            <div class="loading-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <p>Thinking...</p>
+        </div>
+    </div>
+
+    <script src="/static/js/chat.js"></script>
+</body>
+</html> 
