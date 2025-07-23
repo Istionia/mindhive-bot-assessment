@@ -101,7 +101,10 @@ def get_rag_chain():
         if embeddings is None:
             print("🔄 Using OpenRouter embeddings...")
             if not OPENROUTER_API_KEY:
-                raise RuntimeError("OPENROUTER_API_KEY is required for embeddings")
+                raise RuntimeError("❌ OPENROUTER_API_KEY environment variable is not set! Please add it in Render dashboard.")
+            
+            print(f"🔑 Using API key: {OPENROUTER_API_KEY[:12]}...")
+            
             embeddings = OpenAIEmbeddings(
                 api_key=SecretStr(OPENROUTER_API_KEY),
                 base_url="https://openrouter.ai/api/v1",
@@ -185,6 +188,19 @@ def debug_rag():
         }
     except Exception as e:
         return {"error": str(e), "type": type(e).__name__}
+
+@app.get("/debug/env")
+def debug_env():
+    """Debug environment variables"""
+    import os
+    return {
+        "openrouter_key_set": bool(os.getenv("OPENROUTER_API_KEY")),
+        "openrouter_key_length": len(os.getenv("OPENROUTER_API_KEY", "")),
+        "openrouter_key_prefix": os.getenv("OPENROUTER_API_KEY", "")[:12] + "..." if os.getenv("OPENROUTER_API_KEY") else "NOT SET",
+        "render_detected": bool(os.getenv("RENDER")),
+        "port": os.getenv("PORT"),
+        "python_path": os.getenv("PYTHONPATH", "not set")
+    }
 
 @app.get("/")
 def read_root():
