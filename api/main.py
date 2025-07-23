@@ -65,7 +65,7 @@ documents = load_csvs(DATA_FILES)
 # Use local HuggingFace embeddings to avoid OpenRouter authentication issues
 try:
     print("🔄 Initializing local HuggingFace embeddings...")
-    from langchain_huggingface import HuggingFaceEmbeddings
+    from langchain_huggingface import HuggingFaceEmbeddings  # type: ignore
     embeddings = HuggingFaceEmbeddings(
         model_name="sentence-transformers/all-MiniLM-L6-v2",
         model_kwargs={'device': 'cpu'},
