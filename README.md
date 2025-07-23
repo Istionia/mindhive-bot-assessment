@@ -40,7 +40,7 @@ Mindhive-Bot is a modular, extensible AI assistant platform that combines data i
    ```
 
 7. **Query the RAG endpoint:**
-   - Send a POST request to `http://localhost:8000/rag/query` with JSON body:
+   - Send a POST request to `http://localhost:$PORT/rag/query` (default: `http://localhost:8000/rag/query`) with JSON body:
      ```json
      { "query": "What drinkware products are available?" }
      ```

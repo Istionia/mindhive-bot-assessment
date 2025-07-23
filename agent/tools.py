@@ -63,8 +63,9 @@ class OutletTool:
     Expects the API to be hosted at OUTLET_API_BASE (env var or default localhost).
     """
     def __init__(self):
-        # Base URL for outlet queries
-        self.base_url = os.getenv('OUTLET_API_BASE', 'http://localhost:8000')
+        # Base URL for outlet queries - use PORT env var with fallback to 8000
+        port = os.getenv('PORT', '8000')
+        self.base_url = os.getenv('OUTLET_API_BASE', f'http://localhost:{port}')
 
     def query(self, slots: Dict[str, Any], intent: str) -> str:
         """
