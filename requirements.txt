@@ -9,3 +9,5 @@ uvicorn
 pytest
 langchain-community
 pandas
+sentence-transformers
+langchain-huggingface

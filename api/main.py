@@ -4,7 +4,7 @@ from pydantic import BaseModel, SecretStr
 from typing import List
 from dotenv import load_dotenv
 from langchain_openai import OpenAIEmbeddings
-from langchain_community.embeddings import HuggingFaceEmbeddings
+# HuggingFace embeddings imported dynamically to handle fallback properly
 from langchain_community.vectorstores import FAISS
 from langchain_openai import ChatOpenAI
 from langchain.chains import RetrievalQA
@@ -65,6 +65,7 @@ documents = load_csvs(DATA_FILES)
 # Use local HuggingFace embeddings to avoid OpenRouter authentication issues
 try:
     print("🔄 Initializing local HuggingFace embeddings...")
+    from langchain_huggingface import HuggingFaceEmbeddings
     embeddings = HuggingFaceEmbeddings(
         model_name="sentence-transformers/all-MiniLM-L6-v2",
         model_kwargs={'device': 'cpu'},
@@ -75,6 +76,8 @@ except Exception as e:
     print(f"✗ Failed to initialize HuggingFace embeddings: {e}")
     print("🔄 Falling back to OpenRouter embeddings...")
     try:
+        if not OPENROUTER_API_KEY:
+            raise RuntimeError("OPENROUTER_API_KEY is required when HuggingFace embeddings fail")
         embeddings = OpenAIEmbeddings(
             api_key=SecretStr(OPENROUTER_API_KEY),
             base_url="https://openrouter.ai/api/v1",
@@ -85,8 +88,9 @@ except Exception as e:
         )
         print("✓ OpenAI embeddings initialized with OpenRouter")
     except Exception as e2:
-        print(f"✗ Failed to initialize embeddings: {e2}")
-        embeddings = OpenAIEmbeddings()
+        print(f"✗ Failed to initialize both embeddings: {e2}")
+        print("⚠️  App will fail - please check environment variables and dependencies")
+        raise RuntimeError(f"Could not initialize any embeddings: HuggingFace={e}, OpenRouter={e2}") from e2
 
 vectorstore = FAISS.from_documents(documents, embeddings)
 
