@@ -59,26 +59,56 @@ def load_csvs(files: List[str]) -> List[Document]:
             docs.append(Document(page_content=content, metadata={"source": file}))
     return docs
 
-# Prepare vector store with explicit OpenRouter configuration
-documents = load_csvs(DATA_FILES)
+# Global variables for lazy initialization
+_rag_chain = None
+_retriever = None
 
-# Use local HuggingFace embeddings to avoid OpenRouter authentication issues
-try:
-    print("🔄 Initializing local HuggingFace embeddings...")
-    from langchain_huggingface import HuggingFaceEmbeddings  # type: ignore
-    embeddings = HuggingFaceEmbeddings(
-        model_name="sentence-transformers/all-MiniLM-L6-v2",
-        model_kwargs={'device': 'cpu'},
-        encode_kwargs={'normalize_embeddings': True}
-    )
-    print("✅ Local HuggingFace embeddings initialized successfully")
-except Exception as e:
-    print(f"✗ Failed to initialize HuggingFace embeddings: {e}")
-    print("🔄 Falling back to OpenRouter embeddings...")
-    try:
-        if not OPENROUTER_API_KEY:
-            raise RuntimeError("OPENROUTER_API_KEY is required when HuggingFace embeddings fail")
-        embeddings = OpenAIEmbeddings(
+def get_rag_chain():
+    """Lazy initialization of RAG chain to avoid blocking startup"""
+    global _rag_chain, _retriever
+    
+    if _rag_chain is None:
+        print("🔄 Initializing RAG components...")
+        
+        # Load documents
+        documents = load_csvs(DATA_FILES)
+        
+        # Initialize embeddings with fallback
+        try:
+            print("🔄 Initializing local HuggingFace embeddings...")
+            from langchain_huggingface import HuggingFaceEmbeddings  # type: ignore
+            embeddings = HuggingFaceEmbeddings(
+                model_name="sentence-transformers/all-MiniLM-L6-v2",
+                model_kwargs={'device': 'cpu'},
+                encode_kwargs={'normalize_embeddings': True}
+            )
+            print("✅ Local HuggingFace embeddings initialized successfully")
+        except Exception as e:
+            print(f"✗ Failed to initialize HuggingFace embeddings: {e}")
+            print("🔄 Falling back to OpenRouter embeddings...")
+            try:
+                if not OPENROUTER_API_KEY:
+                    raise RuntimeError("OPENROUTER_API_KEY is required when HuggingFace embeddings fail")
+                embeddings = OpenAIEmbeddings(
+                    api_key=SecretStr(OPENROUTER_API_KEY),
+                    base_url="https://openrouter.ai/api/v1",
+                    default_headers={
+                        "HTTP-Referer": "https://github.com/Istionia/mindhive-bot-assessment",
+                        "X-Title": "Mindhive Bot Assessment"
+                    }
+                )
+                print("✓ OpenAI embeddings initialized with OpenRouter")
+            except Exception as e2:
+                print(f"✗ Failed to initialize both embeddings: {e2}")
+                raise RuntimeError(f"Could not initialize any embeddings: HuggingFace={e}, OpenRouter={e2}") from e2
+        
+        # Create vector store and chain
+        vectorstore = FAISS.from_documents(documents, embeddings)
+        _retriever = vectorstore.as_retriever()
+        
+        llm = ChatOpenAI(
+            model="meta-llama/llama-3-70b-instruct", 
+            temperature=0,
             api_key=SecretStr(OPENROUTER_API_KEY),
             base_url="https://openrouter.ai/api/v1",
             default_headers={
@@ -86,27 +116,10 @@ except Exception as e:
                 "X-Title": "Mindhive Bot Assessment"
             }
         )
-        print("✓ OpenAI embeddings initialized with OpenRouter")
-    except Exception as e2:
-        print(f"✗ Failed to initialize both embeddings: {e2}")
-        print("⚠️  App will fail - please check environment variables and dependencies")
-        raise RuntimeError(f"Could not initialize any embeddings: HuggingFace={e}, OpenRouter={e2}") from e2
-
-vectorstore = FAISS.from_documents(documents, embeddings)
-
-# Prepare retriever and LLM
-retriever = vectorstore.as_retriever()
-llm = ChatOpenAI(
-    model="meta-llama/llama-3-70b-instruct", 
-    temperature=0,
-    api_key=SecretStr(OPENROUTER_API_KEY),
-    base_url="https://openrouter.ai/api/v1",
-    default_headers={
-        "HTTP-Referer": "https://github.com/Istionia/mindhive-bot-assessment",
-        "X-Title": "Mindhive Bot Assessment"
-    }
-)
-rag_chain = RetrievalQA.from_chain_type(llm=llm, retriever=retriever)
+        _rag_chain = RetrievalQA.from_chain_type(llm=llm, retriever=_retriever)
+        print("✅ RAG chain initialized successfully")
+    
+    return _rag_chain, _retriever
 
 # Request/response models
 class RAGQuery(BaseModel):
@@ -119,6 +132,9 @@ class RAGResponse(BaseModel):
 @app.post("/rag/query", response_model=RAGResponse)
 def rag_query(request: RAGQuery):
     try:
+        # Initialize components on first request
+        rag_chain, retriever = get_rag_chain()
+        
         result = rag_chain({"query": request.query}, return_only_outputs=True)
         answer = result["result"]
         # Optionally, return sources (top docs)
