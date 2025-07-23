@@ -79,33 +79,38 @@ def get_rag_chain():
         documents = load_csvs(DATA_FILES)
         
         # Initialize embeddings with fallback
-        try:
-            print("🔄 Initializing local HuggingFace embeddings...")
-            from langchain_huggingface import HuggingFaceEmbeddings  # type: ignore
-            embeddings = HuggingFaceEmbeddings(
-                model_name="sentence-transformers/all-MiniLM-L6-v2",
-                model_kwargs={'device': 'cpu'},
-                encode_kwargs={'normalize_embeddings': True}
-            )
-            print("✅ Local HuggingFace embeddings initialized successfully")
-        except Exception as e:
-            print(f"✗ Failed to initialize HuggingFace embeddings: {e}")
-            print("🔄 Falling back to OpenRouter embeddings...")
+        # Skip HuggingFace on Render due to memory/timeout issues
+        import os
+        if os.getenv('RENDER'):
+            print("🚀 On Render - using OpenRouter embeddings directly")
+            embeddings = None  # Force fallback
+        else:
             try:
-                if not OPENROUTER_API_KEY:
-                    raise RuntimeError("OPENROUTER_API_KEY is required when HuggingFace embeddings fail")
-                embeddings = OpenAIEmbeddings(
-                    api_key=SecretStr(OPENROUTER_API_KEY),
-                    base_url="https://openrouter.ai/api/v1",
-                    default_headers={
-                        "HTTP-Referer": "https://github.com/Istionia/mindhive-bot-assessment",
-                        "X-Title": "Mindhive Bot Assessment"
-                    }
+                print("🔄 Initializing local HuggingFace embeddings...")
+                from langchain_huggingface import HuggingFaceEmbeddings  # type: ignore
+                embeddings = HuggingFaceEmbeddings(
+                    model_name="sentence-transformers/all-MiniLM-L6-v2",
+                    model_kwargs={'device': 'cpu'},
+                    encode_kwargs={'normalize_embeddings': True}
                 )
-                print("✓ OpenAI embeddings initialized with OpenRouter")
-            except Exception as e2:
-                print(f"✗ Failed to initialize both embeddings: {e2}")
-                raise RuntimeError(f"Could not initialize any embeddings: HuggingFace={e}, OpenRouter={e2}") from e2
+                print("✅ Local HuggingFace embeddings initialized successfully")
+            except Exception as e:
+                print(f"✗ Failed to initialize HuggingFace embeddings: {e}")
+                embeddings = None
+        
+        if embeddings is None:
+            print("🔄 Using OpenRouter embeddings...")
+            if not OPENROUTER_API_KEY:
+                raise RuntimeError("OPENROUTER_API_KEY is required for embeddings")
+            embeddings = OpenAIEmbeddings(
+                api_key=SecretStr(OPENROUTER_API_KEY),
+                base_url="https://openrouter.ai/api/v1",
+                default_headers={
+                    "HTTP-Referer": "https://github.com/Istionia/mindhive-bot-assessment",
+                    "X-Title": "Mindhive Bot Assessment"
+                }
+            )
+            print("✅ OpenRouter embeddings initialized successfully")
         
         # Create vector store and chain
         vectorstore = FAISS.from_documents(documents, embeddings)
