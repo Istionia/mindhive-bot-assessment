@@ -129,6 +129,21 @@ class RAGResponse(BaseModel):
     answer: str
     sources: List[str]
 
+@app.get("/")
+def read_root():
+    return {
+        "message": "Mindhive Bot API is running!",
+        "endpoints": {
+            "/rag/query": "POST - Ask questions about ZUS products and outlets",
+            "/docs": "GET - API documentation"
+        },
+        "example": {
+            "method": "POST",
+            "url": "/rag/query",
+            "body": {"query": "What drinkware products are available?"}
+        }
+    }
+
 @app.post("/rag/query", response_model=RAGResponse)
 def rag_query(request: RAGQuery):
     try:
